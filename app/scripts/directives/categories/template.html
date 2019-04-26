@@ -1,0 +1,9 @@
+<h3 class="center">Nuestras categorias</h3>
+<md-list>
+    <md-list-item class="md-2-line" ng-repeat="item in categories" ng-click="null">
+        <div class="md-list-item-text">
+            <h3>{{ item.nombre +" ("+item.existencias+")"}}</h3>
+            <p>{{item.nombre}}</p>
+        </div>
+    </md-list-item>
+</md-list>

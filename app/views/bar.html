@@ -1,0 +1,17 @@
+<div layout="column" layout-fill>
+    <md-toolbar md-whiteframe="2">
+
+        <div class="md-toolbar-tools">
+            <h2 style="cursor: pointer;" md-truncate flex>
+                TIENDA
+            </h2>
+            <md-button class="md-icon-button" ng-click="control.cerrar_sesion()">
+                <md-icon>shopping_cart</md-icon>
+            </md-button>
+        </div>
+
+    </md-toolbar>
+    <md-content>
+        <ui-view></ui-view>
+    </md-content>
+</div>

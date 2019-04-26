@@ -3,8 +3,11 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@app/*": [
-        "app/*"
+      // "@app/*": [
+      //   "app/*"
+      // ]
+      "@views":[
+        "app/views/*"
       ]
     },
     "importHelpers": true,
