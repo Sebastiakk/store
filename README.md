@@ -1,6 +1,7 @@
 # VirtualShop [FRONTEND] => TEST CondorLabs
 
 [Ver app funcionando](http://www.virtual-shop.tk)
+, [Backend de la app](https://github.com/Sebastiakk/store-backend)
 
 Esta app utiliza AngularJs, Angular Material y Webpack
 
@@ -25,6 +26,9 @@ $ npm i
 Ejecutamos  =>                $ npm start
 Que es igual a poner =>       $ webpack-dev-server
 ```
+
+Asegúrate que en el archivo "store/app/scripts/configs/api.js" este apuntando a la api, la url debería ser http://localhost:1234,
+descarga el [aqui](https://github.com/Sebastiakk/store-backend)
 
 
 Listo, la app se abre por si sola en el navegador, si no lo hace ingresa a 
