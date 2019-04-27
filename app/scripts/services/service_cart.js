@@ -12,5 +12,10 @@ export default class service_cart {
     });
   }
 
+  async shop(data) {
+    return await _http.put(API + 'cart/products', {
+      data: JSON.stringify(data)
+    });
+  }
 }
 service_cart.$inject = ['$http'];

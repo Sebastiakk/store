@@ -1,5 +1,5 @@
 <div layout="row">
-    <div flex="20" style="padding: 10px" class="degrade">
+    <div flex="20" style="padding: 10px" class="degrade hide-on-med-and-down">
         <h3>{{control.category.nombre}} ({{control.category.existencias}})</h3>
         <p>{{control.category.detalle}}</p>
         <h3>Nuestras marcas</h3>
@@ -8,11 +8,10 @@
             ui-sref="app.brands({id:_url(marca.id_marca)})" title="{{marca.nombre}}">
         </div>
     </div>
-<!-- 
     <div flex layout="row" layout-wrap>
-        <div flex="25" ng-repeat="item in control.products">
+        <div flex="50" flex-xs="100" flex-gt-sm="25" ng-repeat="item in control.products">
             <card-product product="item"></card-product>
         </div>
-    </div> -->
+    </div>
 
 </div>

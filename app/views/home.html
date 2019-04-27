@@ -1,18 +1,19 @@
 <div layout="row" class="">
-    <div flex="20">
+    <div flex="20" class="hide show-on-large">
         <categories></categories>
     </div>
-    <div flex layout="column" layout-align="none none">
-        <h1>Top Marcas</h1>
-        <div flex="initial" layout="row" layout-align="center center">
+    <div flex layout="column"  layout-align="none none">
+        <h1 class="hide-on-med-and-down">Top Marcas</h1>
+        <div class="hide-on-med-and-down" flex="initial" layout="row" layout-align="center center">
             <div flex ng-repeat="item in control.brands | limitTo:10">
-                <img  ui-sref="app.brands({id:_url(item.id_marca)})" class="responsive" style="max-width: 70px; cursor: pointer;" ng-src="{{item.logo}}" title="{{item.nombre}}" alt="">
+                <img ui-sref="app.brands({id:_url(item.id_marca)})" class="responsive"
+                    style="max-width: 70px; cursor: pointer;" ng-src="{{item.logo}}" title="{{item.nombre}}" alt="">
             </div>
         </div>
         <h1>Nuestros productos</h1>
         <div flex layout="row" layout-wrap>
-            <div flex="25" ng-repeat="item in control.products | limitTo:8">
-                <card-product product="item"></card-product>
+            <div flex="50" flex-xs="100" flex-gt-sm="25" ng-repeat="item in control.products | limitTo:8">
+                <card-product  product="item"></card-product>
             </div>
         </div>
     </div>

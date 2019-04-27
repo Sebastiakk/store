@@ -26,6 +26,37 @@ export default class cart {
         }
     }
 
+
+    async shop() {
+        const actual = this.cart;
+        await this.get_details_cart();
+        const nuevo = this.cart;
+        actual.map(async (i) => {
+            nuevo.map(async (j) => {
+                if (i.stock === j.stock) {
+                    const cart = _local.get('cart').map((item) => {
+                        return item
+                    })
+                    await this.save(cart);
+                } else {
+                    _toast.error("El inventario de algunos productos cambiaron");
+                }
+            })
+        })
+
+    }
+    async save(cart) {
+        const result = await _service.shop(cart);
+        if (result.data.response === true) {
+            _toast.error("Gracias por comprar en ViertualShop");
+            _local.set('cart', [])
+            _state.reload();
+        } else {
+            this.get_details_cart();
+            _toast.error("El inventario de algunos productos cambiaron");
+        }
+    }
+
     get_cart() {
         try {
             return _local.get('cart');
@@ -54,8 +85,13 @@ export default class cart {
         try {
             let temp = _local.get('cart');
             temp.splice(i, 1);
-            _local.set('cart', temp)
-            this.get_details_cart();
+            if (temp.length > 0) {
+                _local.set('cart', temp)
+                this.get_details_cart();
+            } else {
+                _local.set('cart', []);
+                _state.reload();
+            }
         } catch (error) {
             _toast.error("No se pudo eliminar el producto");
         }

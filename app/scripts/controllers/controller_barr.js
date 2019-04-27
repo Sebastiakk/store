@@ -3,13 +3,15 @@ import {
 } from '../factories/url_encode';
 let _service = null,
     _state = null,
+    _mdSidenav = null,
     _local = null;
 export default class bar {
 
-    constructor(service_products, local, $state) {
+    constructor(service_products, local, $state, $mdSidenav) {
         _service = service_products;
         _local = local;
         _state = $state;
+        _mdSidenav = $mdSidenav;
         this.init();
     }
 
@@ -35,10 +37,17 @@ export default class bar {
 
         }
     }
+
+    buildToggler(componentId) {
+        return function () {
+            _mdSidenav(componentId).toggle();
+        };
+    }
     init() {
+        this.toggleSidenav = this.buildToggler('closeEventsDisabled');
         this.products = [];
         this.get_productos();
     }
 
 }
-bar.$inject = ['service_products', 'local', '$state'];
+bar.$inject = ['service_products', 'local', '$state', '$mdSidenav'];

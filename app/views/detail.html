@@ -1,6 +1,6 @@
 <div layout="column">
-    <div flex layout="row" style="margin-top: 20px">
-        <div flex="40" class="center">
+    <div flex  layout-gt-xs="column" layout-gt-sm="row" style="margin-top: 20px">
+        <div flex-gt-xs="100" flex-gt-sm="40" class="center">
             <div class="container">
                 <img md-whiteframe="5" style="border-radius: 20px ;background-color: white" class="responsive-img"
                     ng-src="{{control.product.foto}}" alt="">
@@ -29,8 +29,8 @@
     <div ng-if="control.related.length > 0" class="container" flex>
         <h1>Productos relacionados</h1>
         <div layout="row" layout-wrap>
-            <div flex="25" ng-repeat="item in control.related | limitTo:4">
-                <card-product product="item"></card-product>
+            <div flex="50" flex-xs="100" flex-gt-sm="25" ng-repeat="item in control.related | limitTo:4">
+                <card-product  product="item"></card-product>
             </div>
         </div>
     </div>

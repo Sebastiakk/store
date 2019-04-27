@@ -1,6 +1,22 @@
+<md-sidenav class="md-sidenav-left" md-component-id="closeEventsDisabled" md-whiteframe="4" md-disable-close-events>
+
+    <md-toolbar class="center-align">
+        <img src="../images/logo.png" class="responsive-img" width="150" alt="">
+    </md-toolbar>
+    <md-content layout-margin>
+        <md-button ng-click="control.toggleSidenav()" class="md-primary">
+            Cerrar
+        </md-button>
+        <categories></categories>
+    </md-content>
+
+</md-sidenav>
 <div layout="column" layout-fill>
     <md-toolbar md-whiteframe="2">
         <div class="md-toolbar-tools">
+            <md-button class="md-icon-button hide-on-large-only" ng-click="control.toggleSidenav()">
+                <md-icon style="color: white !important">menu</md-icon>
+            </md-button>
             <span title="Virtual Shop" style="cursor: pointer;" class="center" ui-sref="app.home" md-truncate flex>
                 <img src="../images/logo.png" class="responsive-img" width="150" alt="">
             </span>

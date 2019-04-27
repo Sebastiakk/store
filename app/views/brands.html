@@ -1,5 +1,5 @@
 <div layout="row">
-    <div flex="20" style="padding: 10px" class="degrade">
+    <div flex="20" style="padding: 10px" class="degrade hide-on-med-and-down">
         <h3>{{control.brand.nombre}}</h3>
         <img class="responsive-img" ng-src="{{control.brand.logo}}" alt="{{control.brand.nombre}}"
             title="{{control.brand.nombre}}">
@@ -7,7 +7,7 @@
     </div>
 
     <div flex layout="row" layout-wrap>
-        <div flex="25" ng-repeat="item in control.products">
+        <div flex="50" flex-xs="100" flex-gt-sm="25"  ng-repeat="item in control.products">
             <card-product product="item"></card-product>
         </div>
     </div>

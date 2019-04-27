@@ -1,5 +1,6 @@
 <md-card>
-    <img style="height:250px; width:auto" class="responsive-img" ng-src="{{product.foto}}" alt="">
+    <img style="height:250px; width:auto;@media only screen and (max-width: 992px) {height: 100%;width: 100%;}"
+        class="responsive-img" ng-src="{{product.foto}}" alt="">
     <md-card-content>
         <h2 md-truncate title="{{product.nombre_producto}}">{{product.nombre_producto}}</h2>
         <p>{{product.precio | currency:'COP $':0  }}</p>
