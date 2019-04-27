@@ -8,14 +8,14 @@ export default class home {
         this.init();
     }
 
-    async get_products() {
+    async get_products() { // Obtiene todos los productos 
         try {
             const res = await _service.get_all_products();
             this.products = this.shuffle(res.data.data);
         } catch (error) {}
     }
 
-    async get_brands() {
+    async get_brands() { // Obtiene todas las marcas que estan en la DB
         try {
             const res = await _service2.get_brands();
             this.brands = this.shuffle(res.data.data);
@@ -24,7 +24,7 @@ export default class home {
         }
     }
 
-    shuffle(a) {
+    shuffle(a) { // Pone en orden aleatoreo un array
         var j, x, i;
         for (i = a.length - 1; i > 0; i--) {
             j = Math.floor(Math.random() * (i + 1));

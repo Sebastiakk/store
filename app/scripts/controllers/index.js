@@ -6,7 +6,7 @@ import cart from './controller_cart';
 import categories from './controller_categories';
 import brand from './controller_brand';
 
-// Se cargan todos TOOOOODOS los controladores de la app
+// Se agrupan todas los controladores en un solo modulo y se exporta para importarlo en el modulo principal
 angular.module('controllers', [])
     .controller('controller_home', home)
     .controller('controller_detail', detail)

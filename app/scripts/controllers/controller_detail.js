@@ -15,7 +15,7 @@ export default class detail {
         this.init();
     }
 
-    async get_product() {
+    async get_product() { // Obtiene el detale del producto
         try {
             const res = await _service.get_product(decode(_params.id));
             this.product = res.data.data;
@@ -24,7 +24,7 @@ export default class detail {
         }
     }
 
-    async get_related_products() {
+    async get_related_products() { // Obtiene productos relacionados a la categoria del producto visualizado actualmente en la app
         try {
             const res = await _service.get_related_products(decode(_params.id));
             this.related = res.data.data;

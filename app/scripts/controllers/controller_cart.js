@@ -12,7 +12,7 @@ export default class cart {
         this.init();
     }
 
-    async get_details_cart() {
+    async get_details_cart() { // Obtiene los datos del localstorague y lo envia a la api para corroborar nuevos cambios en el stock del producto o precios
         try {
             const cart = _local.get('cart').map((item) => {
                 return item.prodct
@@ -27,7 +27,9 @@ export default class cart {
     }
 
 
-    async shop() {
+    async shop() { // CAmpra de n prodcutos
+        // Esta funcion todo el carrito actual en el local storague y el del la BD y valida que los precios y/o cantidades sean iguales
+        // Si no son iguales le notifica al usuario que revise nuevamente el carrito
         const actual = this.cart;
         await this.get_details_cart();
         const nuevo = this.cart;
@@ -37,15 +39,15 @@ export default class cart {
                     const cart = _local.get('cart').map((item) => {
                         return item
                     })
-                    await this.save(cart);
-                } else {
+                    await this.save(cart); // Si el carrito es igual guarda la compra en la BD
+                } else { // Mensaje de error
                     _toast.error("El inventario de algunos productos cambiaron");
                 }
             })
         })
 
     }
-    async save(cart) {
+    async save(cart) { //Actualiza el stock de los productos
         const result = await _service.shop(cart);
         if (result.data.response === true) {
             _toast.error("Gracias por comprar en ViertualShop");
@@ -57,13 +59,13 @@ export default class cart {
         }
     }
 
-    get_cart() {
+    get_cart() { // Obtiene el contenido del carrito pero del local storague
         try {
             return _local.get('cart');
         } catch (error) {}
     }
 
-    total() {
+    total() { // Calcula el total del carrito
         let total = 0;
         this.cart.map((i) => {
             total += (i.amount * i.precio);
@@ -71,7 +73,7 @@ export default class cart {
         return total;
     }
 
-    update_amount(data) {
+    update_amount(data) { // Actualiza la cantidad de productos a comprar en el local storague
         let temp = _local.get('cart');
         temp.map((i) => {
             if (i.prodct === data.id_producto) {
@@ -81,7 +83,7 @@ export default class cart {
         _local.set('cart', temp)
     }
 
-    delete_product(i) {
+    delete_product(i) { // Elimina el producto
         try {
             let temp = _local.get('cart');
             temp.splice(i, 1);

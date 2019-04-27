@@ -17,7 +17,7 @@ export default class categories {
         this.init();
     }
 
-    async get_category() {
+    async get_category() { // Obtioene todas las categorias de la app
         try {
             const result = await _service.get_categorie(decode(_params.id));
             this.category = result.data.data;
@@ -26,7 +26,7 @@ export default class categories {
         }
     }
 
-    async get_products() {
+    async get_products() { // Obtiene todos los productos por categoria
         try {
             const result = await _service2.all_products_categories(decode(_params.id));
             this.products = result.data.data;

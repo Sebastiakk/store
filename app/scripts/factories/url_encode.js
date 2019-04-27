@@ -1,8 +1,8 @@
 module.exports = {
-    encode: (json) => {
+    encode: (json) => {// Encripta a base 64
         return window.btoa(JSON.stringify(json));
     },
-    decode: (cadena) => {
+    decode: (cadena) => {// desencripta un base 64
         try {
             return JSON.parse(window.atob(cadena));
         } catch (error) {

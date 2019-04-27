@@ -7,6 +7,6 @@
     RewriteRule ^ - [L]
 
     # Rewrite everything else to index.html to allow html5 state links
-    RewriteRule ^ dist/index.html [L]
+    RewriteRule ^ index.html [L]
 
 </IfModule>

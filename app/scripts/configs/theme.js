@@ -1,4 +1,5 @@
 theme.$inject = ["$mdThemingProvider"];
+// Se crea una nueva paleta de colores y se establece como tema predeterminado
 export default function theme($mdThemingProvider) {
     $mdThemingProvider.definePalette('mcgpalette0', {
         '50': 'e8f6f2',

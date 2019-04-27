@@ -1,14 +1,14 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
+const path = require('path'); // Plugin para resolver los separadores de las rutas 
+const HtmlWebpackPlugin = require('html-webpack-plugin'); // Plugin para generar un HTMl a partir de una base
+const TerserPlugin = require('terser-webpack-plugin'); // Plugin para limpiar los comentarios de la app
 
 module.exports = {
   mode: 'development',
-  entry: {
-    app: path.join(__dirname, 'app', 'scripts', 'app.module.js'),
-    css: path.join(__dirname, 'app', 'styles', 'index.js'),
+  entry: {// Entrada de los modulos
+    css: path.join(__dirname, 'app', 'styles', 'index.js'), // Aqui esta toda la app
+    app: path.join(__dirname, 'app', 'scripts', 'app.module.js'), // Aqui estan todos los estilos
   },
-  output: {
+  output: {// Directorio donde estara al app a la hora de hacer el build
     path: path.join(__dirname, 'dist'),
     filename: "[name].js",
     chunkFilename: '[name].js'
@@ -35,11 +35,11 @@ module.exports = {
           ]
         }
       },
-      {
+      {//loader de css y stilos
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
-      {
+      {// loader de html
         test: /\.html$/,
         use: [{
           loader: 'html-loader',
@@ -47,7 +47,7 @@ module.exports = {
             minimize: true
           }
         }]
-      }, {
+      }, {// loader de imagenes
         test: /\.(gif|png|jpe?g|svg)$/i,
         use: [{
           loader: 'file-loader',
@@ -80,14 +80,16 @@ module.exports = {
       })
     ]
   },
-  plugins: [
+  plugins: [ // plugin del HTml y su base
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.join(__dirname, 'app', 'views', 'index.html'),
-      minify: true
+      favicon: path.join(__dirname, 'app', 'images', 'logo.png'),
+      minify: true,
+      // inject: 'head'
     })
   ],
-  devServer: {
+  devServer: { // Informacion del servidor cuando, se ejecuta con npm run
     contentBase: path.join('/dist/'),
     inline: true,
     port: 1103,

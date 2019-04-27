@@ -1,15 +1,16 @@
 rutas.$inject = ["$stateProvider", "$urlRouterProvider", "$locationProvider"];
+// Aqui estan todas las rutas de la app
 export default function rutas($stateProvider, $urlRouterProvider, $locationProvider) {
-    $urlRouterProvider.otherwise('/🌐/home');
+    $urlRouterProvider.otherwise('/🌐/home'); // Si la URL del navegador no concide lo manda para este link
     $locationProvider.html5Mode(true);
     $locationProvider.hashPrefix('');
-    $stateProvider.state('app', {
-        url: '/🌐',
-        template: require('../../views/bar.html'),
-        controller: 'controller_barr as  control',
-        extra: {
-            title: '',
-            bar: false
+    $stateProvider.state('app', { // Se establecen las rutas
+        url: '/🌐', // <- URL que se visualiza en el navegador
+        template: require('../../views/bar.html'), // <- html que se visualiza en el navegador
+        controller: 'controller_barr as  control', // <- contolador de la vista
+        extra: { // <- nodulos extras proporcionados
+            title: '', // <- titulo del degundo toolbar
+            bar: false// <- toolbar activado o desactivado
         }
     }).state('app.home', {
         url: '/home',
