@@ -4,6 +4,7 @@ import detail from './controller_detail';
 import barr from './controller_barr';
 import cart from './controller_cart';
 import categories from './controller_categories';
+import brand from './controller_brand';
 
 // Se cargan todos TOOOOODOS los controladores de la app
 angular.module('controllers', [])
@@ -12,3 +13,4 @@ angular.module('controllers', [])
     .controller('controller_barr', barr)
     .controller('controller_cart', cart)
     .controller('controller_categories', categories)
+    .controller('controller_brand', brand)

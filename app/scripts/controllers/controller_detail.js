@@ -5,7 +5,7 @@ import {
 let _service = null,
     _toast = null,
     _params = null;
-    
+
 export default class detail {
 
     constructor(service_products, $stateParams, toast) {
@@ -24,9 +24,20 @@ export default class detail {
         }
     }
 
+    async get_related_products() {
+        try {
+            const res = await _service.get_related_products(decode(_params.id));
+            this.related = res.data.data;
+        } catch (error) {
+            _toast.error("No se pudo obtener los productos relacionados");
+        }
+    }
+
     init() {
         this.product = {};
+        this.related = [];
         this.get_product();
+        this.get_related_products();
     }
 
 }

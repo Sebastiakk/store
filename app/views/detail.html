@@ -14,14 +14,24 @@
                 <h2 flex>{{control.product.precio | currency:'COP $':0  }}</h2>
             </div>
             <div>
-                <img style="max-width: 100px" ng-src="{{control.product.logo}}" alt="{{control.product.nombre}}"
-                    title="{{control.product.nombre}}">
+                <img style="max-width: 100px ;cursor: pointer;" ng-src="{{control.product.logo}}"
+                    alt="{{control.product.nombre}}" title="{{control.product.nombre}}"
+                    ui-sref="app.brands({id:_url(control.product.id_marca)})" class="responsive">
             </div>
             <p ng-bind-html="control.product.descripcion"></p>
             <md-chips>
-                <md-chip ng-repeat="cat in control.product.categories" style="cursor: pointer;" ui-sref="app.categories({id:_url(cat.id_categoria)})">{{cat.nombre}}</md-chip>
+                <md-chip ng-repeat="cat in control.product.categories" style="cursor: pointer;"
+                    ui-sref="app.categories({id:_url(cat.id_categoria)})">{{cat.nombre}}</md-chip>
             </md-chips>
         </div>
 
+    </div>
+    <div ng-if="control.related.length > 0" class="container" flex>
+        <h1>Productos relacionados</h1>
+        <div layout="row" layout-wrap>
+            <div flex="25" ng-repeat="item in control.related | limitTo:4">
+                <card-product product="item"></card-product>
+            </div>
+        </div>
     </div>
 </div>

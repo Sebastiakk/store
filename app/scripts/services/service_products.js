@@ -22,5 +22,9 @@ export default class service_products {
     return await _http.get(API + 'product/category/' + id);
   }
 
+  async get_related_products(id) {
+    return await _http.get(API + 'product/related/' + id);
+  }
+
 }
 service_products.$inject = ['$http'];

@@ -43,5 +43,13 @@ export default function rutas($stateProvider, $urlRouterProvider, $locationProvi
             title: 'Productos por categoria',
             bar: true
         }
+    }).state('app.brands', {
+        url: '/brands/:id',
+        template: require('../../views/brands.html'),
+        controller: 'controller_brand as control',
+        extra: {
+            title: 'Productos por marcas',
+            bar: true
+        }
     });
 };

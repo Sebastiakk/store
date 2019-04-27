@@ -1,19 +1,29 @@
-let _service = null;
+let _service = null,
+    _service2 = null;
 export default class home {
 
-    constructor(service_products) {
+    constructor(service_products, service_brand) {
         _service = service_products;
+        _service2 = service_brand;
         this.init();
     }
 
-    async get_productos() {
+    async get_products() {
         try {
             const res = await _service.get_all_products();
             this.products = this.shuffle(res.data.data);
+        } catch (error) {}
+    }
+
+    async get_brands() {
+        try {
+            const res = await _service2.get_brands();
+            this.brands = this.shuffle(res.data.data);
         } catch (error) {
 
         }
     }
+
     shuffle(a) {
         var j, x, i;
         for (i = a.length - 1; i > 0; i--) {
@@ -27,8 +37,10 @@ export default class home {
 
     init() {
         this.products = [];
-        this.get_productos();
+        this.brands = [];
+        this.get_products();
+        this.get_brands();
     }
 
 }
-home.$inject = ['service_products'];
+home.$inject = ['service_products', 'service_brand'];
