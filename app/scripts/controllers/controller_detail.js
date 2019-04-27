@@ -5,6 +5,7 @@ import {
 let _service = null,
     _toast = null,
     _params = null;
+    
 export default class detail {
 
     constructor(service_products, $stateParams, toast) {

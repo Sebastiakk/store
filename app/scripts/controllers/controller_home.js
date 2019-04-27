@@ -9,10 +9,20 @@ export default class home {
     async get_productos() {
         try {
             const res = await _service.get_all_products();
-            this.products = res.data.data;
+            this.products = this.shuffle(res.data.data);
         } catch (error) {
 
         }
+    }
+    shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
     }
 
     init() {

@@ -1,33 +1,42 @@
-<form>
-    <div class="container">
-        <div>
-            <md-list>
-                <md-list-item class="md-2-line" ng-repeat="item in control.cart">
-                    <img ng-src="{{item.foto}}" class="md-avatar" />
-                    <div class="md-list-item-text">
-                        <h3>{{($index+1)}}. {{ item.nombre_producto }}</h3>
-                        <h3>Unidad: {{item.precio| currency:'COP $':0}}</h3>
-                        <h3>
+<div class="container">
+    <md-card md-whiteframe="3" style="border-radius: 100px;padding-top: 20px">
+        <md-card-content>
+            <form>
+                <div class="container">
+                    <div>
+                        <md-list>
+                            <md-list-item class="md-2-line" ng-repeat="item in control.cart">
+                                <img ng-src="{{item.foto}}" class="md-avatar" />
+                                <div class="md-list-item-text">
+                                    <h3>{{($index+1)}}. {{ item.nombre_producto }}</h3>
+                                    <h3>Unidad: {{item.precio| currency:'COP $':0}}</h3>
+                                    <h3>
 
-                        </h3>
-                        <md-input-container>
-                            <label>Cantidad</label>
-                            <input min="1" max="{{ item.stock }}" placeholder="Cantidad máxima {{ item.stock }}" required type="number"
-                                ng-init="item.amount=control.get_cart()[$index].amount" ng-model="item.amount"
-                                ng-change="control.update_amount(item)">
-                        </md-input-container>
-                        <b style="position: relative;top:-7px">= {{item.amount*item.precio| currency:'COP $':0}}</b>
+                                    </h3>
+                                    <md-input-container>
+                                        <label>Cantidad</label>
+                                        <input min="1" max="{{ item.stock }}"
+                                            placeholder="Cantidad máxima {{ item.stock }}" required type="number"
+                                            ng-init="item.amount=control.get_cart()[$index].amount"
+                                            ng-model="item.amount" ng-change="control.update_amount(item)">
+                                    </md-input-container>
+                                    <b style="position: relative;top:-7px">=
+                                        {{item.amount*item.precio| currency:'COP $':0}}</b>
+                                </div>
+                                <md-button type="button" ng-click="control.delete_product($index)"
+                                    class="md-icon-button">
+                                    <md-icon>
+                                        delete
+                                    </md-icon>
+                                </md-button>
+                            </md-list-item>
+                        </md-list>
                     </div>
-                    <md-button type="button" ng-click="control.delete_product($index)" class="md-icon-button">
-                        <md-icon>
-                            delete
-                        </md-icon>
-                    </md-button>
-                </md-list-item>
-            </md-list>
-        </div>
-        <h1 class="right">
-            Total:{{control.total()| currency:'COP $':0}}
-        </h1>
-    </div>
-</form>
+                    <h1 class="right">
+                        Total:{{control.total()| currency:'COP $':0}}
+                    </h1>
+                </div>
+            </form>
+        </md-card-content>
+    </md-card>
+</div>

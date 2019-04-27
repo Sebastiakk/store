@@ -1,9 +1,9 @@
 <div layout="column" layout-fill>
     <md-toolbar md-whiteframe="2">
         <div class="md-toolbar-tools">
-            <h2 style="cursor: pointer;" ui-sref="app.home" md-truncate flex>
-                TIENDA
-            </h2>
+            <span title="Virtual Shop" style="cursor: pointer;" class="center" ui-sref="app.home" md-truncate flex>
+                <img src="../images/logo.png" class="responsive-img" width="150" alt="">
+            </span>
             <div>
                 <md-autocomplete md-no-cache="true" md-selected-item="selectedItem"
                     md-items="item in control.products | filter:searchText" md-search-text="searchText"
@@ -13,14 +13,14 @@
                 </md-autocomplete>
             </div>
             <md-button class="md-icon-button" ui-sref="app.cart">
-                <md-icon>shopping_cart</md-icon>
+                <md-icon style="color: white !important">shopping_cart</md-icon>
             </md-button>
-            <span ng-if="control.n_product()!==0">
+            <span style="color: white !important" ng-if="control.n_product()!==0">
                 {{control.n_product()}}
             </span>
         </div>
     </md-toolbar>
-    <md-content>
+    <md-content class="fondo">
         <md-toolbar style="margin-bottom: 20px" ng-if="$state.bar" md-whiteframe="3" class="md-hue-2">
             <div class="md-toolbar-tools">
                 <md-button class="md-icon-button" back>

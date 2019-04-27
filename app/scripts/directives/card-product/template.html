@@ -1,0 +1,12 @@
+<md-card>
+    <img style="height: 220px" class="responsive-img" ng-src="{{product.foto}}" alt="">
+    <md-card-content>
+        <h2 md-truncate title="{{product.nombre_producto}}">{{product.nombre_producto}}</h2>
+        <p>{{product.precio | currency:'COP $':0  }}</p>
+    </md-card-content>
+    <md-card-footer style="padding-top: 3px;padding-bottom: 0px;">
+        <md-button ui-sref="app.detail({id:encode(product.id_producto)})" class="md-primary right">
+            Detalle
+        </md-button>
+    </md-card-footer>
+</md-card>

@@ -2,27 +2,12 @@
     <div flex="20">
         <categories></categories>
     </div>
-
-    <div flex>
-        <div layout="column">
-            <div flex layout="row" layout-wrap>
-                <div flex="25" ng-repeat="item in control.products">
-                    <md-card>
-                        <img style="height: 220px" ng-src="{{item.foto}}" alt="">
-                        <md-card-content>
-                            <h2 md-truncate title="{{item.nombre_producto}}">{{item.nombre_producto}}</h2>
-                            <p>{{item.precio | currency:'COP $':0  }}</p>
-                        </md-card-content>
-                        <md-card-footer style="padding-top: 3px;padding-bottom: 0px;">
-                            <md-button ui-sref="app.detail({id:_url(item.id_producto)})" class="md-primary right">
-                                Detalle
-                            </md-button>
-                        </md-card-footer>
-                    </md-card>
-                </div>
+    <div flex layout="column">
+        <h1>Nuestros productos</h1>
+        <div flex layout="row" layout-wrap>
+            <div flex="25" ng-repeat="item in control.products | limitTo:8">
+                <card-product product="item"></card-product>
             </div>
         </div>
-
     </div>
-
 </div>

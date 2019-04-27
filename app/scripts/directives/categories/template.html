@@ -1,14 +1,16 @@
-<h3 class="center">Nuestras categorias</h3>
-<md-input-container style="padding-bottom: 0; margin-bottom: 0">
-    <md-icon>&#xE8B6;</md-icon>
-    <input ng-model="search" placeholder="Buscar categoría">
-</md-input-container>
-<md-list>
-    <md-list-item class="md-2-line" ng-repeat="item in categories | filter:search"
-        ui-sref="app.categories({id:encode(item.id_categoria)})">
-        <div class="md-list-item-text">
-            <h3>{{ item.nombre +" ("+item.existencias+")"}}</h3>
-            <p md-truncate>{{item.detalle}}</p>
-        </div>
-    </md-list-item>
-</md-list>
+<div class="degrade">
+    <h2 class="center">Nuestras categorias</h2>
+    <md-input-container style="padding-bottom: 0; margin-bottom: 0">
+        <md-icon>&#xE8B6;</md-icon>
+        <input ng-model="search" placeholder="Buscar categoría">
+    </md-input-container>
+    <md-list>
+        <md-list-item class="md-2-line" ng-repeat="item in categories | filter:search"
+            ui-sref="app.categories({id:encode(item.id_categoria)})">
+            <div class="md-list-item-text">
+                <h3>{{ item.nombre +" ("+item.existencias+")"}}</h3>
+                <p md-truncate>{{item.detalle}}</p>
+            </div>
+        </md-list-item>
+    </md-list>
+</div>

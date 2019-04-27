@@ -1,43 +1,18 @@
 <div layout="row">
-    <div ng-if="control.category.nombre" flex="20" style="padding: 10px">
+    <div flex="20" style="padding: 10px" class="degrade">
         <h3>{{control.category.nombre}} ({{control.category.existencias}})</h3>
         <p>{{control.category.detalle}}</p>
         <h3>Nuestras marcas</h3>
-        <div layout="row" layout-align="center center">
-            <img flex="50" ng-repeat="marca in control.category.marcas" ng-src="{{marca.logo}}" alt="{{marca.nombre}}"
+        <div layout="row" layout-wrap layout-align="center center">
+            <img style="padding:5px" flex="33" ng-repeat="marca in control.category.marcas" ng-src="{{marca.logo}}" alt="{{marca.nombre}}"
                 title="{{marca.nombre}}">
         </div>
     </div>
 
-    <div flex>
-        <div layout="column">
-            <md-content flex md-theme="input" layout="column" layout-align="end end" layout-padding>
-                <div class="right">
-
-                    <md-input-container style="padding-bottom: 0; margin-bottom: 0">
-                        <md-icon>&#xE8B6;</md-icon>
-                        <input ng-model="search.notes" placeholder="Buscar">
-                    </md-input-container>
-                </div>
-            </md-content>
-            <div flex layout="row" layout-wrap>
-                <div flex="25" ng-repeat="item in control.products">
-                    <md-card>
-                        <img ng-src="{{item.foto}}" alt="">
-                        <md-card-content>
-                            <h2 md-truncate title="{{item.nombre_producto}}">{{item.nombre_producto}}</h2>
-                            <p md-truncate>{{item.descripcion}}</p>
-                        </md-card-content>
-                        <md-card-footer style="padding-top: 3px;padding-bottom: 0px;">
-                            <md-button ui-sref="app.detail({id:_url(item.id_producto)})" class="md-primary right">
-                                Detalle
-                            </md-button>
-                        </md-card-footer>
-                    </md-card>
-                </div>
-            </div>
+    <div flex layout="row" layout-wrap>
+        <div flex="25" ng-repeat="item in control.products">
+            <card-product product="item"></card-product>
         </div>
-
     </div>
 
 </div>
