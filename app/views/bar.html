@@ -1,20 +1,36 @@
 <div layout="column" layout-fill>
     <md-toolbar md-whiteframe="2">
-
         <div class="md-toolbar-tools">
-            <h2 style="cursor: pointer;" md-truncate flex>
+            <h2 style="cursor: pointer;" ui-sref="app.home" md-truncate flex>
                 TIENDA
             </h2>
-            <md-button class="md-icon-button" ng-click="control.cerrar_sesion()">
+            <md-button class="md-icon-button" ui-sref="app.cart">
                 <md-icon>shopping_cart</md-icon>
             </md-button>
             <span ng-if="control.n_product()!==0">
                 {{control.n_product()}}
             </span>
         </div>
-
     </md-toolbar>
     <md-content>
-        <div ui-view style="height: 100%;"></div>
+        <md-toolbar style="margin-bottom: 20px" ng-if="$state.bar" md-whiteframe="3" class="md-hue-2">
+            <div class="md-toolbar-tools">
+                <md-button class="md-icon-button" back>
+                    <md-tooltip>
+                        Volver
+                    </md-tooltip>
+                    <md-icon>arrow_back</md-icon>
+                </md-button>
+                <md-button class="md-icon-button">
+                    <md-tooltip>
+                        Inicio
+                    </md-tooltip>
+                    <md-icon>home</md-icon>
+                </md-button>
+
+                <h2 flex md-truncate>{{$state.title}}</h2>
+            </div>
+        </md-toolbar>
+        <ui-view></ui-view>
     </md-content>
 </div>

@@ -1,41 +1,27 @@
-    <div layout="column">
-        <div flex>
-            <md-toolbar class="md-hue-2">
-                <div class="md-toolbar-tools">
-                    <md-button class="md-icon-button" back aria-label="Settings">
-                        <md-tooltip>
-                            Volver
-                        </md-tooltip>
-                        <md-icon>arrow_back</md-icon>
-                    </md-button>
-
-                    <h2 flex md-truncate>Detalle producto</h2>
-                </div>
-            </md-toolbar>
-        </div>
-        <div flex layout="row" style="margin-top: 20px">
-            <div flex="40" class="center">
-                <div class="container">
-                    <img md-whiteframe="10" style="border-radius: 20px" class="responsive-img"
-                        ng-src="{{control.product.foto}}" alt="">
-                </div>
+<div layout="column">
+    <div flex layout="row" style="margin-top: 20px">
+        <div flex="40" class="center">
+            <div class="container">
+                <img md-whiteframe="5" style="border-radius: 20px" class="responsive-img"
+                    ng-src="{{control.product.foto}}" alt="">
             </div>
-            <div flex class="container">
-                <h1>{{control.product.nombre_producto}}</h1>
-                <div ng-if="control.product.id_producto" layout="row">
-                    <h2 flex>Stock: {{control.product.stock || 0}}</h2>
-                    <h2 flex>{{control.product.precio | currency:'$':0  }}</h2>
-                    <btn-cart id-prodct="control.product.id_producto"></btn-cart>
-                </div>
-                <div>
-                    <img style="max-width: 100px;" ng-src="{{control.product.logo}}" alt="{{control.product.nombre}}"
-                        title="{{control.product.nombre}}">
-                </div>
-                <p>{{control.product.descripcion}}</p>
-                <md-chips>
-                    <md-chip ng-repeat="cat in control.product.categories">{{cat.nombre}}</md-chip>
-                </md-chips>
-            </div>
-
         </div>
+        <div flex class="container">
+            <h1>{{control.product.nombre_producto}}</h1>
+            <div ng-if="control.product.id_producto" layout="row">
+                <h2 flex>Stock: {{control.product.stock || 0}}</h2>
+                <h2 flex>{{control.product.precio | currency:'$':0  }}</h2>
+                <btn-cart id-prodct="control.product.id_producto"></btn-cart>
+            </div>
+            <div>
+                <img style="max-width: 100px;" ng-src="{{control.product.logo}}" alt="{{control.product.nombre}}"
+                    title="{{control.product.nombre}}">
+            </div>
+            <p>{{control.product.descripcion}}</p>
+            <md-chips>
+                <md-chip ng-repeat="cat in control.product.categories">{{cat.nombre}}</md-chip>
+            </md-chips>
+        </div>
+
     </div>
+</div>

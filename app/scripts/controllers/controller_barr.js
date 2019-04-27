@@ -2,15 +2,15 @@ let _service = null,
     _local = null;
 export default class bar {
 
-    constructor(service_products, $localStorage) {
+    constructor(service_products, local) {
         _service = service_products;
-        _local = $localStorage;
+        _local = local;
         this.init();
     }
 
     n_product() {
         try {
-            return _local.cart.length;
+            return _local.get('cart').length;
         } catch (error) {
             return 0;
         }
@@ -21,4 +21,4 @@ export default class bar {
     }
 
 }
-bar.$inject = ['service_products', '$localStorage'];
+bar.$inject = ['service_products', 'local'];

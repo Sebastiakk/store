@@ -1,10 +1,12 @@
 let _service = null,
+    _toast = null,
     _params = null;
 export default class detail {
 
-    constructor(service_products, $stateParams) {
+    constructor(service_products, $stateParams, toast) {
         _service = service_products;
         _params = $stateParams;
+        _toast = toast;
         this.init();
     }
 
@@ -13,7 +15,7 @@ export default class detail {
             const res = await _service.get_product(_params.id);
             this.product = res.data.data;
         } catch (error) {
-
+            _toast.error("No se pudo obtener el detalle del producto");
         }
     }
 
@@ -23,4 +25,4 @@ export default class detail {
     }
 
 }
-detail.$inject = ['service_products', '$stateParams'];
+detail.$inject = ['service_products', '$stateParams', 'toast'];

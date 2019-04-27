@@ -1,0 +1,27 @@
+<form>
+    <div class="container">
+        <div>
+            <md-list>
+                <md-list-item class="md-2-line" ng-repeat="item in control.cart">
+                    <img ng-src="{{item.foto}}" class="md-avatar" />
+                    <div class="md-list-item-text">
+                        <h3>{{ item.nombre_producto }}</h3>
+                        <h3>Unidad: {{item.precio| currency:'$':0}}</h3>
+                        <h3><b>Sub Total:
+                                {{control.get_cart()[$index].cantidad*item.precio| currency:'$':0}}</b></h3>
+                        <md-input-container>
+                            <label>Cantidad</label>
+                            <input min="1" max="{{ item.stock }}" required type="number"
+                                ng-model="control.get_cart()[$index].cantidad">
+                        </md-input-container>
+                    </div>
+                    <md-button type="button" ng-click="control.delete_product($index)" class="md-icon-button">
+                        <md-icon>
+                            delete
+                        </md-icon>
+                    </md-button>
+                </md-list-item>
+            </md-list>
+        </div>
+    </div>
+</form>

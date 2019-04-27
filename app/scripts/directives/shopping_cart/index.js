@@ -1,6 +1,6 @@
-btnCart.$inject = ['$localStorage'];
+btnCart.$inject = ['local'];
 
-export default function btnCart($localStorage) {
+export default function btnCart(local) {
   return {
     restrict: 'AE',
     template: require('./template.html'),
@@ -12,8 +12,8 @@ export default function btnCart($localStorage) {
 
 
   function link(scope) {
-    if (!$localStorage.cart) {
-      $localStorage.cart = [];
+    if (!local.get('cart')) {
+      local.set('cart', [])
     }
 
     scope.carrito = validar_item_existe();
@@ -32,8 +32,8 @@ export default function btnCart($localStorage) {
 
     function validar_item_existe() {
       var existe = false;
-      for (let i = 0; i < $localStorage.cart.length; i++) {
-        if ($localStorage.cart[i].prodct === scope.idProdct) {
+      for (let i = 0; i < local.get('cart').length; i++) {
+        if (local.get('cart')[i].prodct === scope.idProdct) {
           existe = true;
         }
       }
@@ -42,17 +42,21 @@ export default function btnCart($localStorage) {
 
     function agregar_carrito() {
       if (scope.carrito) {
-        $localStorage.cart.push({
+        let temp = local.get('cart');
+        temp.push({
           prodct: scope.idProdct
         });
+        local.set('cart', temp)
       } else {
         var pos;
-        for (let i = 0; i < $localStorage.cart.length; i++) {
-          if ($localStorage.cart[i].prodct === scope.idProdct) {
+        for (let i = 0; i < local.get('cart').length; i++) {
+          if (local.get('cart')[i].prodct === scope.idProdct) {
             pos = i;
           }
         }
-        $localStorage.cart.splice(pos, 1);
+        let temp = local.get('cart');
+        temp.splice(pos, 1);
+        local.set('cart', temp)
       }
     }
   }
