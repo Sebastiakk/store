@@ -10,5 +10,9 @@ export default class service_categories {
     return await _http.get(API + 'categories');
   }
 
+  async get_categorie(id) {
+    return await _http.get(API + 'categories/' + id);
+  }
+
 }
 service_categories.$inject = ['$http'];

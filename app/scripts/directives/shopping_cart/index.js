@@ -44,7 +44,8 @@ export default function btnCart(local) {
       if (scope.carrito) {
         let temp = local.get('cart');
         temp.push({
-          prodct: scope.idProdct
+          prodct: scope.idProdct,
+          amount: 1
         });
         local.set('cart', temp)
       } else {

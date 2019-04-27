@@ -8,16 +8,16 @@
         </div>
         <div flex class="container">
             <h1>{{control.product.nombre_producto}}</h1>
-            <div ng-if="control.product.id_producto" layout="row">
-                <h2 flex>Stock: {{control.product.stock || 0}}</h2>
-                <h2 flex>{{control.product.precio | currency:'$':0  }}</h2>
+            <div ng-if="control.product.id_producto" layout="row" layout-align="end center">
                 <btn-cart id-prodct="control.product.id_producto"></btn-cart>
+                <h2 flex>Stock: {{control.product.stock || 0}}</h2>
+                <h2 flex>{{control.product.precio | currency:'COP $':0  }}</h2>
             </div>
             <div>
                 <img style="max-width: 100px;" ng-src="{{control.product.logo}}" alt="{{control.product.nombre}}"
                     title="{{control.product.nombre}}">
             </div>
-            <p>{{control.product.descripcion}}</p>
+            <p ng-bind-html="control.product.descripcion"></p>
             <md-chips>
                 <md-chip ng-repeat="cat in control.product.categories">{{cat.nombre}}</md-chip>
             </md-chips>

@@ -5,15 +5,18 @@
                 <md-list-item class="md-2-line" ng-repeat="item in control.cart">
                     <img ng-src="{{item.foto}}" class="md-avatar" />
                     <div class="md-list-item-text">
-                        <h3>{{ item.nombre_producto }}</h3>
-                        <h3>Unidad: {{item.precio| currency:'$':0}}</h3>
-                        <h3><b>Sub Total:
-                                {{control.get_cart()[$index].cantidad*item.precio| currency:'$':0}}</b></h3>
+                        <h3>{{($index+1)}}. {{ item.nombre_producto }}</h3>
+                        <h3>Unidad: {{item.precio| currency:'COP $':0}}</h3>
+                        <h3>
+
+                        </h3>
                         <md-input-container>
                             <label>Cantidad</label>
-                            <input min="1" max="{{ item.stock }}" required type="number"
-                                ng-model="control.get_cart()[$index].cantidad">
+                            <input min="1" max="{{ item.stock }}" placeholder="Cantidad máxima {{ item.stock }}" required type="number"
+                                ng-init="item.amount=control.get_cart()[$index].amount" ng-model="item.amount"
+                                ng-change="control.update_amount(item)">
                         </md-input-container>
+                        <b style="position: relative;top:-7px">= {{item.amount*item.precio| currency:'COP $':0}}</b>
                     </div>
                     <md-button type="button" ng-click="control.delete_product($index)" class="md-icon-button">
                         <md-icon>
@@ -23,5 +26,8 @@
                 </md-list-item>
             </md-list>
         </div>
+        <h1 class="right">
+            Total:{{control.total()| currency:'COP $':0}}
+        </h1>
     </div>
 </form>

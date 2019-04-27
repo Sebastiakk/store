@@ -5,27 +5,18 @@
 
     <div flex>
         <div layout="column">
-            <md-content flex md-theme="input" layout="column" layout-align="end end" layout-padding>
-                <div class="right">
-
-                    <md-input-container style="padding-bottom: 0; margin-bottom: 0">
-                        <md-icon>&#xE8B6;</md-icon>
-                        <input ng-model="search.notes" placeholder="Buscar">
-                    </md-input-container>
-                </div>
-            </md-content>
             <div flex layout="row" layout-wrap>
                 <div flex="25" ng-repeat="item in control.products">
                     <md-card>
-                        <img ng-src="{{item.foto}}" alt="">
+                        <img style="height: 220px" ng-src="{{item.foto}}" alt="">
                         <md-card-content>
                             <h2 md-truncate title="{{item.nombre_producto}}">{{item.nombre_producto}}</h2>
-                            <p md-truncate>{{item.descripcion}}</p>
+                            <p>{{item.precio | currency:'COP $':0  }}</p>
                         </md-card-content>
                         <md-card-footer style="padding-top: 3px;padding-bottom: 0px;">
-                            <md-button ui-sref="app.detail({id:item.id_producto})" class="md-primary right">Detalle
+                            <md-button ui-sref="app.detail({id:_url(item.id_producto)})" class="md-primary right">
+                                Detalle
                             </md-button>
-                            <!-- Card footer -->
                         </md-card-footer>
                     </md-card>
                 </div>

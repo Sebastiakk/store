@@ -35,5 +35,13 @@ export default function rutas($stateProvider, $urlRouterProvider, $locationProvi
             title: 'Carrito de compras',
             bar: true
         }
+    }).state('app.categories', {
+        url: '/categories/:id',
+        template: require('../../views/categories.html'),
+        controller: 'controller_categories as control',
+        extra: {
+            title: 'Productos por categoria',
+            bar: true
+        }
     });
 };

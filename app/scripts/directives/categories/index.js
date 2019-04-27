@@ -20,6 +20,10 @@ export default class categories {
             control.categories = result.data.data;
         }).catch((err) => {});
 
+        control.encode = (json) => {
+            return window.btoa(JSON.stringify(json));
+        }
+
     }
 
 

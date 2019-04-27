@@ -6,6 +6,7 @@ import 'angular-animate';
 import 'angular-messages';
 import 'angular-material';
 import 'angular-loading-bar';
+import 'angular-sanitize';
 // Se cargan todos los modulos o dependencia y se exporta para poder utilizarlos en toda la APP
 export default angular.module('modules', [
     'ngAria',
@@ -15,4 +16,5 @@ export default angular.module('modules', [
     'ngStorage',
     'ui.router',
     'angular-loading-bar',
+    'ngSanitize'
 ]);

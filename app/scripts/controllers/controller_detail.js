@@ -1,3 +1,7 @@
+import {
+    decode
+} from '../factories/url_encode';
+
 let _service = null,
     _toast = null,
     _params = null;
@@ -12,7 +16,7 @@ export default class detail {
 
     async get_product() {
         try {
-            const res = await _service.get_product(_params.id);
+            const res = await _service.get_product(decode(_params.id));
             this.product = res.data.data;
         } catch (error) {
             _toast.error("No se pudo obtener el detalle del producto");

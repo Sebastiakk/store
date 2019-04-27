@@ -31,12 +31,31 @@ export default class cart {
             return _local.get('cart');
         } catch (error) {}
     }
+
+    total() {
+        let total = 0;
+        this.cart.map((i) => {
+            total += (i.amount * i.precio);
+        });
+        return total;
+    }
+
+    update_amount(data) {
+        let temp = _local.get('cart');
+        temp.map((i) => {
+            if (i.prodct === data.id_producto) {
+                i.amount = data.amount;
+            }
+        });
+        _local.set('cart', temp)
+    }
+
     delete_product(i) {
         try {
             let temp = _local.get('cart');
             temp.splice(i, 1);
             _local.set('cart', temp)
-            _state.reload();
+            this.get_details_cart();
         } catch (error) {
             _toast.error("No se pudo eliminar el producto");
         }

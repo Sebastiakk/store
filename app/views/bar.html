@@ -4,6 +4,14 @@
             <h2 style="cursor: pointer;" ui-sref="app.home" md-truncate flex>
                 TIENDA
             </h2>
+            <div>
+                <md-autocomplete md-no-cache="true" md-selected-item="selectedItem"
+                    md-items="item in control.products | filter:searchText" md-search-text="searchText"
+                    md-item-text="item.nombre_producto" md-item-text="3" placeholder="Buscar producto"
+                    md-selected-item-change="control.selected_item(item)">
+                    <span title="{{ item.nombre_producto }}">{{ item.nombre_producto }}</span>
+                </md-autocomplete>
+            </div>
             <md-button class="md-icon-button" ui-sref="app.cart">
                 <md-icon>shopping_cart</md-icon>
             </md-button>
@@ -21,7 +29,7 @@
                     </md-tooltip>
                     <md-icon>arrow_back</md-icon>
                 </md-button>
-                <md-button class="md-icon-button">
+                <md-button class="md-icon-button" ui-sref="app.home">
                     <md-tooltip>
                         Inicio
                     </md-tooltip>

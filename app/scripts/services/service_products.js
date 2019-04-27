@@ -14,5 +14,13 @@ export default class service_products {
     return await _http.get(API + 'product/' + id);
   }
 
+  async all_products_categories(id) {
+    return await _http.get(API + 'product/' + id);
+  }
+
+  async all_products_categories(id) {
+    return await _http.get(API + 'product/category/' + id);
+  }
+
 }
 service_products.$inject = ['$http'];
