@@ -4,5 +4,6 @@ import './configs/modulos.module';
 import './configs';
 import './services';
 import './directives';
+import './controllers';
 
-angular.bootstrap(document, ['modules', 'configs', 'services', 'directives']);
+angular.bootstrap(document, ['modules', 'configs', 'services', 'directives', 'controllers']);

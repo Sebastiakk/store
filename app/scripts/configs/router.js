@@ -6,11 +6,14 @@ export default function rutas($stateProvider, $urlRouterProvider, $locationProvi
     $stateProvider.state('app', {
         url: '/🌐',
         template: require('../../views/bar.html'),
-        controller: ['$state', function ($state) {
-            $state.go('app.home');
-        }]
+        controller: 'controller_barr as  control',
     }).state('app.home', {
         url: '/home',
-        template: require('../../views/home.html')
+        template: require('../../views/home.html'),
+        controller: 'controller_home as control'
+    }).state('app.detail', {
+        url: '/detail/:id',
+        template: require('../../views/detail.html'),
+        controller: 'controller_detail as control'
     });
 };

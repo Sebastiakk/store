@@ -8,10 +8,13 @@
             <md-button class="md-icon-button" ng-click="control.cerrar_sesion()">
                 <md-icon>shopping_cart</md-icon>
             </md-button>
+            <span ng-if="control.n_product()!==0">
+                {{control.n_product()}}
+            </span>
         </div>
 
     </md-toolbar>
     <md-content>
-        <ui-view></ui-view>
+        <div ui-view style="height: 100%;"></div>
     </md-content>
 </div>
