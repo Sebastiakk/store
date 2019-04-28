@@ -24,7 +24,7 @@ function respuestas($mdToast, $state) {
             }).catch(() => {});
     }
 
-    function error(text = "Hubo un error inesperado") {
+    function error(text = "There was an unexpected error") {
         const toast = $mdToast.simple().textContent(text).position(posicion);
         $mdToast.show(toast);
     }

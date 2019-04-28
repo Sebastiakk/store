@@ -17,7 +17,7 @@ export default function rutas($stateProvider, $urlRouterProvider, $locationProvi
         template: require('../../views/home.html'),
         controller: 'controller_home as control',
         extra: {
-            title: 'Inicio',
+            title: 'Home',
             bar: false
         }
     }).state('app.detail', {
@@ -25,7 +25,7 @@ export default function rutas($stateProvider, $urlRouterProvider, $locationProvi
         template: require('../../views/detail.html'),
         controller: 'controller_detail as control',
         extra: {
-            title: 'Detalle de producto',
+            title: 'Product detail',
             bar: true
         }
     }).state('app.cart', {
@@ -33,7 +33,7 @@ export default function rutas($stateProvider, $urlRouterProvider, $locationProvi
         template: require('../../views/cart.html'),
         controller: 'controller_cart as control',
         extra: {
-            title: 'Carrito de compras',
+            title: 'Shopping cart',
             bar: true
         }
     }).state('app.categories', {
@@ -41,7 +41,7 @@ export default function rutas($stateProvider, $urlRouterProvider, $locationProvi
         template: require('../../views/categories.html'),
         controller: 'controller_categories as control',
         extra: {
-            title: 'Productos por categoria',
+            title: 'Products by category',
             bar: true
         }
     }).state('app.brands', {
@@ -49,7 +49,7 @@ export default function rutas($stateProvider, $urlRouterProvider, $locationProvi
         template: require('../../views/brands.html'),
         controller: 'controller_brand as control',
         extra: {
-            title: 'Productos por marcas',
+            title: 'Products by brands',
             bar: true
         }
     });

@@ -23,7 +23,7 @@
             <div>
                 <md-autocomplete md-no-cache="true" md-selected-item="selectedItem"
                     md-items="item in control.products | filter:searchText" md-search-text="searchText"
-                    md-item-text="item.nombre_producto" md-item-text="3" placeholder="Buscar producto"
+                    md-item-text="item.nombre_producto" md-item-text="3" placeholder="Search product"
                     md-selected-item-change="control.selected_item(item)">
                     <span title="{{ item.nombre_producto }}">{{ item.nombre_producto }}</span>
                 </md-autocomplete>

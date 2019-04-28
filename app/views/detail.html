@@ -27,7 +27,7 @@
 
     </div>
     <div ng-if="control.related.length > 0" class="container" flex>
-        <h1>Productos relacionados</h1>
+        <h1>Related products</h1>
         <div layout="row" layout-wrap>
             <div flex="50" flex-xs="100" flex-gt-sm="25" ng-repeat="item in control.related | limitTo:4">
                 <card-product  product="item"></card-product>

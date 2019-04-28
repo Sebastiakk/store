@@ -16,21 +16,21 @@ export default function btnCart(local) {
       local.set('cart', [])
     }
 
-    scope.carrito = validar_item_existe();
+    scope.carrito = validate_existence();
 
-    scope.icono_carrito = function () {
+    scope.icon_cart = function () {
       return scope.carrito ? 'remove_shopping_cart' : 'add_shopping_cart';
     };
     scope.text_carrito = function () {
-      return !scope.carrito ? 'Agregar al carrito' : 'Remover del carrito';
+      return !scope.carrito ? 'Add to cart' : 'Remove from cart';
     };
 
-    scope.dar_like = function () {
+    scope.add_cart = function () {
       scope.carrito = !scope.carrito;
       agregar_carrito();
     };
 
-    function validar_item_existe() {
+    function validate_existence() {
       var existe = false;
       for (let i = 0; i < local.get('cart').length; i++) {
         if (local.get('cart')[i].prodct === scope.idProdct) {

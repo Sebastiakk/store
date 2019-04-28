@@ -23,7 +23,7 @@ export default class brand {
             this.brand = res.data.data.brands;
             this.products = res.data.data.products;
         } catch (error) {
-            _toast.error("No hay productos de esta marca");
+            _toast.error("No products for this brand");
             _state.go('app.home');
         }
     }

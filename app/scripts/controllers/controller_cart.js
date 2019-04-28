@@ -22,7 +22,7 @@ export default class cart {
                 this.cart = result.data.data;
             }
         } catch (error) {
-            _toast.error("No se pudo obtener el detalle del carrito");
+            _toast.error("Could not get the detail of the cart");
         }
     }
 
@@ -41,7 +41,7 @@ export default class cart {
                     })
                     await this.save(cart); // Si el carrito es igual guarda la compra en la BD
                 } else { // Mensaje de error
-                    _toast.error("El inventario de algunos productos cambiaron");
+                    _toast.error("The inventory of some products changed");
                 }
             })
         })
@@ -50,12 +50,12 @@ export default class cart {
     async save(cart) { //Actualiza el stock de los productos
         const result = await _service.shop(cart);
         if (result.data.response === true) {
-            _toast.error("Gracias por comprar en ViertualShop");
+            _toast.error("Thank you for shopping at ViertualShop");
             _local.set('cart', [])
             _state.reload();
         } else {
             this.get_details_cart();
-            _toast.error("El inventario de algunos productos cambiaron");
+            _toast.error("The inventory of some products changed");
         }
     }
 
@@ -95,7 +95,7 @@ export default class cart {
                 _state.reload();
             }
         } catch (error) {
-            _toast.error("No se pudo eliminar el producto");
+            _toast.error("The product could not be removed");
         }
     }
 
