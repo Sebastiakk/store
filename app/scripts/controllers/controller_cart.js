@@ -14,10 +14,10 @@ export default class cart {
 
     async get_details_cart() { // Obtiene los datos del localstorague y lo envia a la api para corroborar nuevos cambios en el stock del producto o precios
         try {
-            const cart = _local.get('cart').map((item) => {
-                return item.prodct
-            })
-            if (cart.length > 0) {
+            if (_local.get('cart').length > 0) {
+                const cart = _local.get('cart').map((item) => {
+                    return item.prodct
+                })
                 const result = await _service.get_products_cart(cart);
                 this.cart = result.data.data;
             }

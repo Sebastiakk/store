@@ -2,7 +2,7 @@
     <div flex="20" style="padding: 10px" class="degrade hide-on-med-and-down">
         <h3>{{control.category.nombre}} ({{control.category.existencias}})</h3>
         <p>{{control.category.detalle}}</p>
-        <h3>Nuestras marcas</h3>
+        <h3>Our brands</h3>
         <div layout="row" layout-wrap layout-align="center center">
             <img style="padding:5px; cursor: pointer;" flex="33" ng-repeat="marca in control.category.marcas" ng-src="{{marca.logo}}" alt="{{marca.nombre}}"
             ui-sref="app.brands({id:_url(marca.id_marca)})" title="{{marca.nombre}}">
