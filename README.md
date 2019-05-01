@@ -1,6 +1,6 @@
 # VirtualShop [FRONTEND] => TEST CondorLabs
 
-[Ver app funcionando](http://www.virtual-shop.tk)
+[Ver app funcionando](https://www.virtual-shop.tk)
 , [Backend de la app](https://github.com/Sebastiakk/store-backend)
 
 Esta app utiliza AngularJs, Angular Material y Webpack
